@@ -1,3 +1,4 @@
+
 /**
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
  * http://cssreset.com
@@ -49,7 +50,7 @@
  
  /* custom */
  a {
-   color: #7e8c8d;
+   color: #000;
    text-decoration: none;
    -webkit-backface-visibility: hidden;
  }

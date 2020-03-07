@@ -13,6 +13,10 @@ export default {
   name: 'App',
   components: {
     FooterGuide
+  },
+  mounted () {
+    console.log(this.$router);
+    
   }
 }
 </script>

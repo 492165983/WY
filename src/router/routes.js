@@ -44,6 +44,6 @@ export default [
   },
   {
     path: '/',
-    redirect: '/classify'
+    redirect: '/home'
   }
 ]
