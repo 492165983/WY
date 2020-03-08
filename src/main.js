@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import '../tools/rem'
+// 移动端适配
+import './tools/rem'
+// 引入样式重置
+import './tools/reset.css'  
 
-import { Tabbar, TabbarItem, Search, Button, Icon, Tab, Tabs  } from 'vant'
+import {  Swipe, SwipeItem,Tabbar, TabbarItem, Search, Button, Icon, Tab, Tabs  } from 'vant'
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Search)
@@ -11,6 +14,8 @@ Vue.use(Button)
 Vue.use(Icon)
 Vue.use(Tab)
 Vue.use(Tabs)
+Vue.use(Swipe)
+Vue.use(SwipeItem)
 
 Vue.config.productionTip = false
 /* eslint-disable no-new*/

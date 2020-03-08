@@ -8,7 +8,8 @@
 <script>
 
 // 引入FooterGuide 组件
-import FooterGuide from './components/FooterGuide/FooterGuide'
+import FooterGuide from './components/FooterGuide'
+
 export default {
   name: 'App',
   components: {
@@ -21,6 +22,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="stylus" rel="stylesheet/stylus">
+html, body
+  width 100%
+  height 100%
+  margin 0
 </style>
