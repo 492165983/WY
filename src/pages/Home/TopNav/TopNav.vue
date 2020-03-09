@@ -30,6 +30,7 @@
           <CategoryHotSell />
           <FlashSale />
           <NewItem />
+          <SceneLight />
         </div>
       </van-tab>
     </van-tabs>
@@ -46,6 +47,7 @@ import IndexActivity from './IndexActivity/IndexActivity'
 import CategoryHotSell from './CategoryHotSell/CategoryHotSell'
 import FlashSale from './FlashSale/FlashSale'
 import NewItem from './NewItem/NewItem'
+import SceneLight from './SceneLight/SceneLight'
 export default {
   name: 'TopNav',
   data () {
@@ -53,6 +55,7 @@ export default {
       navDatas: [{ name: '推荐' }],
       policyDescList: [],
       kingKongList: [],
+      // itemPicBeanList: [],
     }
   },
   //  注册组件
@@ -62,13 +65,15 @@ export default {
     IndexActivity,
     CategoryHotSell,
     FlashSale,
-    NewItem
+    NewItem,
+    SceneLight
   },
   //  等页面渲染完毕后
   mounted () {
     this.navDatas = this.navDatas.concat(navDatas)
     this.policyDescList = indexDatas.policyDescList
     this.kingKongList = indexDatas.kingKongModule.kingKongList
+    // this.itemPicBeanList = indexDatas.sceneLightShoppingGuideModule
   }
 }
 </script>
