@@ -21,7 +21,7 @@ export default {
   justify-content center
   align-items center
   box-sizing border-box
-  padding 0 15px
+  padding 0 10px
   .icon
     font-size 20px
     margin-right 2px

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
+import waterfall from 'vue-waterfall2'
 
 // 移动端适配
 import './tools/rem'
@@ -20,7 +20,7 @@ Vue.use(Swipe)
 Vue.use(SwipeItem)
 Vue.use(Sidebar)
 Vue.use(SidebarItem)
-
+Vue.use(waterfall)
 
 
 Vue.config.productionTip = false

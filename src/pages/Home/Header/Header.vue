@@ -27,10 +27,13 @@ export default {
   padding 10px 0
   background-color #fff
   .logo
+    width 75px
     font-size 18px
     margin 0 10px
   .login
+    width 20px
     font-size 12px
     margin-left 10px
+    margin-right 7px
     border-radius 4px
 </style>
