@@ -1,56 +1,56 @@
 <template>
   <div class="classify">
-    <!-- 分类搜索栏 -->
     <div class="search">
       <van-icon name="search" class="icon" />
       <span>搜索商品, 共24027款好物</span>
     </div>
-
-    <!-- 分类左侧边栏 -->
-    <div class="sidebar">
-      <div class="ratings-wrapper" ref="ratingsScroll">
-        <div style="transform:translateY(opx)">
-          <ul class="content">
-            <li v-for="(item,index) in datas" :key="index" class="item">{{item.name}}</li>
-          </ul>
-        </div>
-        
-      </div>
+    <div class="slidebar">
+      <van-sidebar v-model="activeKey" class="slide">
+        <van-sidebar-item
+          :title="item.name"
+          class="slide_item"
+          v-for="(item,index) in slides"
+          :key="index"
+          @click="onChange(item.id)"
+        />
+      </van-sidebar>
+      <router-view></router-view>
     </div>
-    
-    <!-- 分类右侧 -->
-    
   </div>
 </template>
 
 <script>
-import cateDatas from "../../../datas/cateNavDatas.json";
+
+import datas from '../../../datas/ft1Data.json'
 // 引入滚动插件
-import BScroll from "better-scroll";
+// import BScroll from "better-scroll";
 export default {
-  name: "Classify",
-  data() {
+  name: 'Classify',
+  data () {
     return {
-      // activeKey: 0,// 侧边栏变化值
-      cateDatas, // 分类总数据
+      activeKey: 0,
+      slides: [],
       // subCateList: {} ,// 侧边栏显示选中显示对应的数据,
-      datas: []
-    };
-  },
-  methods: {
-    _initScroll() {
-      this.ratingsScroll = new BScroll(this.$refs.ratingsScroll, {
-        click: true
-      });
     }
   },
-  created() {
-    this.$nextTick(() => {
-      this._initScroll();
-    });
+  methods: {
+    onChange (id) {
+      this.$router.replace('/category/' + id)
+    },
+    // _initScroll() {
+    //   this.slide = new BScroll(this.$refs.slide, {
+    //     click: true
+    //   });
+    // }
   },
-  mounted() {
-    this.datas = cateDatas.categoryL1List;
+  //  created() {
+  //   this.$nextTick(() => {
+  //     this._initScroll();
+  //   });
+  // },
+  mounted () {
+    this.slides = datas.categoryL1List
+    
   }
 }
 </script>
@@ -59,72 +59,41 @@ export default {
 .classify
   height 100%
   width 100%
-  overflow auto
-  // 搜索
+  overflow hidden
+  //顶部搜索栏
   .search
     background-color #ededed
     width 90%
     height 40px
     border-radius 5px
-    margin 10px auto
+    margin 5px auto
     display flex
     justify-content center
     align-items center
     box-sizing border-box
-    padding 10px 15px 10px 0
+    padding 7px 10px 7px 0
     .icon
       margin-left 40px
       font-size 20px
       opacity 0.6
     span
-      padding 10px 10px
+      padding 5px 5px
       opacity 0.6
-  // 左侧下拉
-  .sidebar
-    width 100%
-    overflow auto
-    .ratings-wrapper
+      font-size 10px
+    //左侧下拉
+  .slidebar
+    display flex
+    .slide
+      width 110px
+      height 100%
+      padding 15px 0
       border-top 1px solid #ccc
       border-right 1px solid #ccc
-      float left
-      width 120px
-      height 560px
-      background-color #fff
-      position relative
-      .content
-        padding 20px 0
-        .item
-          width 100%
-          font-size 18px
-          height 50px
-          border none
-          text-align center
-          margin 5px 4px 4px 2px
-
-  // 显示内容区域
-  .cate_center
-    width 260px
-    // border-top 1px solid #999
-    // 大图
-    .banner
-      width 100%
-      height 100%
-      img
-        width 260px
-        height 96px
-    // 商品区
-    .cateItem
-      width 100%
-      display flex
-      flex-wrap wrap
-      justify-content space-around
-      li
-        width 77px
-        height 108px
-        img
-          width 77px
-          height 77px
-        p
-          text-align center
-          color #666
+      .slide_item
+        height 45px
+        display flex
+        align-items center
+        margin 2px
+        background-color #fff
+ 
 </style>

@@ -2,20 +2,17 @@
   <div class="home">
     <Header />
     <TopNav />
-    <Bottom />
   </div>
 </template>
 
 <script>
 import Header from './Header/Header'
 import TopNav from './TopNav/TopNav'
-import Bottom from './Bottom/Bottom'
 export default {
   name: 'Home',
   components: {
     Header,
-    TopNav,
-    Bottom
+    TopNav
   }
 }
 </script>

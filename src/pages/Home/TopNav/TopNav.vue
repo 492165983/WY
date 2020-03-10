@@ -31,6 +31,7 @@
           <FlashSale />
           <NewItem />
           <SceneLight />
+          <Bottom />
         </div>
       </van-tab>
     </van-tabs>
@@ -48,6 +49,7 @@ import CategoryHotSell from './CategoryHotSell/CategoryHotSell'
 import FlashSale from './FlashSale/FlashSale'
 import NewItem from './NewItem/NewItem'
 import SceneLight from './SceneLight/SceneLight'
+import Bottom from './Bottom/Bottom'
 export default {
   name: 'TopNav',
   data () {
@@ -66,7 +68,8 @@ export default {
     CategoryHotSell,
     FlashSale,
     NewItem,
-    SceneLight
+    SceneLight,
+    Bottom
   },
   //  等页面渲染完毕后
   mounted () {

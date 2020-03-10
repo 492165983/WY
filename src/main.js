@@ -8,10 +8,10 @@ import './tools/rem'
 // 引入样式重置
 import './tools/reset.css'  
 
-import {  Swipe, SwipeItem,Tabbar, TabbarItem, Search, Button, Icon, Tab, Tabs,Sidebar, SidebarItem  } from 'vant'
+import {  Swipe, SwipeItem,Tabbar, TabbarItem, Button, Icon, Tab, Tabs,Sidebar, SidebarItem  } from 'vant'
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
-Vue.use(Search)
+// Vue.use(Search)
 Vue.use(Button)
 Vue.use(Icon)
 Vue.use(Tab)

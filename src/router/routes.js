@@ -4,12 +4,25 @@ import Home from '../pages/Home/Home.vue'
 import Mine from '../pages/Mine/Mine.vue'
 import Shopping from '../pages/Shopping/Shopping.vue'
 import WorthBuy from '../pages/WorthBuy/WorthBuy.vue'
+import ClassifyItem from '../pages/Classify/ClassifyItem/ClassifyItem.vue'
 
 // 向外暴露routes数组
 export default [
   {
     path: '/classify',
     component: Classify,
+    children: [
+      {
+        path: '/classify/:id',
+        component:ClassifyItem
+      },
+      {
+        path: '/classify',
+        redirect: '/classify/11'
+      }
+      
+
+    ],
     meta: {
       isShowFooter: true
     }
