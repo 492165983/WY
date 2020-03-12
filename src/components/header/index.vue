@@ -5,8 +5,8 @@
     </div>
     <slot name="center"/>
     <div class="right" slot="right">
-      <van-icon name="search" size="26px" @click="$router.replace('/search')" />
-      <van-icon name="cart-o" size="26px" @click="$router.replace('/shopping')" />
+      <van-icon name="search" size="26px" @click="$router.push('/search')" />
+      <van-icon name="cart-o" size="26px" @click="$router.replace('/cart')" />
     </div>
   </div>
 </template>

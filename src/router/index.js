@@ -1,12 +1,12 @@
+// 引入vue
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// 引入routes
-import routes from './routes.js'
-// 声明使用
+// 引入路由
+import routes from './routers'
+// 使用路由
 Vue.use(VueRouter)
-// 实例化对象并暴露
 export default new VueRouter({
-  mode: 'history', // 干掉地址栏上的#符号
+  mode: 'history',
   routes
 })

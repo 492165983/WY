@@ -13,7 +13,15 @@
           v-validate="'required|changePhone'"
         />
         <span style="color:red">{{ errors.first('phone') }}</span>
-        <input type="text" placeholder="请输入短信验证码" class="phoneInput" v-model="code" name="code" maxlength="8" v-validate="'required'" />
+        <input
+          type="text"
+          placeholder="请输入短信验证码"
+          class="phoneInput"
+          v-model="code"
+          name="code"
+          maxlength="8"
+          v-validate="'required'"
+        />
         <!-- <button class="code" @click="getCode">获取验证码</button> -->
         <span style="color:red">{{ errors.first('code') }}</span>
         <div class="code">
@@ -38,6 +46,8 @@
 </template>
 
 <script>
+import { reqSendCode, reqLoginPhone } from '../../../api'
+import { Toast } from 'vant'
 export default {
   name: 'PhoneLogin',
   data () {
@@ -49,7 +59,7 @@ export default {
   },
   methods: {
     // 发送短信验证码
-    getCode () {
+    async getCode () {
       // 初始化倒计时时间
       this.computedTime = 5
       this.timeId = setInterval(() => {
@@ -62,24 +72,46 @@ export default {
           clearInterval(this.timeId)
         }
       }, 1000)
+      // 提取手机号码
+      const { phone } = this
+      const names = ['phone']
+      // 表单整体小样
+      const success = await this.$validator.validateAll(names)
+      // 判断表单效验是否成功
+      if (success) {
+        // 发送请求
+        const result = await reqSendCode(phone)
+        // 发送成功
+        if (result.code === 0) {
+          Toast('发送成功')
+        } else {
+          // 失败
+          Toast(result.msg)
+          // console.log(result);
+        }
+      }
     },
     // 登录
     async phoneLogin () {
-      console.log(this.phone);
       // 提取手机号码和验证码
-      // const { phone, code } = this
+      let { phone, code } = this
       const names = ['phone', 'code']
       // 表单整体小样
       const success = await this.$validator.validateAll(names)
       // 表单效验成功
-      if(success){
+      if (success) {
         // 发送请求
-
+        const result = await reqLoginPhone(phone, code)
+        // console.log(result);
         // 拿到响应的数据 存储在vuex中和localStorage中
-        
-      
+        if(result.code === 0){
+          // 存储在vuex中
+          this.$store.dispatch('addUser',result.data)
+          // 跳转至个人信息
+          this.$router.replace('/ucenter')
+        }
       }
-      
+
     }
   }
 }

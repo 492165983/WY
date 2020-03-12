@@ -1,31 +1,21 @@
 <template>
   <div>
-    <router-view />
-    <FooterGuide v-show="$route.meta.isShowFooter"/> 
-    <!-- v-show="$route.meta.isShowFooter" -->
+    <router-view/>
+    <FooterGuide v-show="$route.meta.isShowFooter"/>
   </div>
-</template> 
+</template>
 
 <script>
-
-// 引入FooterGuide 组件
-import FooterGuide from './components/FooterGuide'
+// 引入footerGuide组件
+import FooterGuide from './components/footerGuide'
 
 export default {
   name: 'App',
+  // 注册组件
   components: {
     FooterGuide
-  },
-  mounted () {
-    console.log(this.$router);
-    
   }
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-html, body
-  width 100%
-  height 100%
-  margin 0
-</style>
+<style lang="stylus" rel="stylesheet/stylus"></style>

@@ -16,22 +16,22 @@
 
 <script>
 // 头部插槽
-import Header from '../header/index'
+import Header from '../header'
 // 登录首页
-import LoginTab from './LoginTab/index'
+import LoginTab from './loginTab'
 // 手机号登录组件
-import PhoneLogin from './PhoneLogin/index'
+import PhoneLogin from './phoneLogin'
 // 用户名等登录组件
-import UserLogin from './UserLogin/index'
+import UserLogin from './userLogin'
 export default {
   name: 'Login',
-   components: {
+  components: {
     Header,
     LoginTab,
     PhoneLogin,
     UserLogin
   },
-   data () {
+  data () {
     return {
       loginMethod: 0, // 0 显示选中登录方式页面 1手机号码登录 2 邮箱登录
     }
@@ -39,7 +39,7 @@ export default {
   mounted () {
     // console.log(this);
     // 绑定自定义切换登录选项事件监听
-    // this.$bus.$on('isShowLoginTab', this.isShowLoginTab)
+    this.$bus.$on('isShowLoginTab', this.isShowLoginTab)
   },
   methods: {
     // 切换登录选项
@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus">
 .loginContainer
   width 100%
   padding 50px 0 0

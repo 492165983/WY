@@ -62,7 +62,6 @@ export default {
         display flex
         justify-content center
         align-items center
-        // border-right  1px solid #666
         img 
           width 20px
           height 20px
@@ -71,5 +70,5 @@ export default {
       .line
         height 20px
         width 0.3px
-        border-left  1px solid #666
+        border 0.15px solid #666
 </style>

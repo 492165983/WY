@@ -10,7 +10,7 @@
           v-model="name"
           name="name"
           maxlength="18"
-          v-validate="'required|changePhone'"
+          v-validate="'required'"
         />
         <span style="color:red">{{ errors.first('name') }}</span>
         <input
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { reqLoginPwd } from '../../../api'
 export default {
   name: 'UserLogin',
   data () {
@@ -47,10 +48,21 @@ export default {
   },
   methods: {
     // 用户名和邮箱登录
-    userLogin () {
+    async userLogin () {
       const { name, pwd } = this
-      console.log(name, pwd);
-
+      // console.log(name, pwd);
+      const result = await reqLoginPwd(name,pwd)
+      // console.log(result);
+      // 判断发送是否成功
+      if(result.code === 0){
+        // 发送成功后吧用户信息存储在vuex中
+        this.$store.dispatch('addUser', result.data)
+        // 跳转到个人页面
+        this.$router.replace('/ucenter')
+        // 清空输入框数据
+        this.name = ''
+        this.pwd = ''
+      }
     },
 
     // 显示选项登录界面
